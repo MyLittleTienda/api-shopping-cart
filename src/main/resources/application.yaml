@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: api-shopping-cart
+  profiles:
+    active: local
+  config:
+    import: configserver:http://localhost:8888
