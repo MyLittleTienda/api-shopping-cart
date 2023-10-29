@@ -1,7 +1,23 @@
 spring:
   application:
     name: api-shopping-cart
-  profiles:
-    active: local
-  config:
-    import: configserver:http://localhost:8888
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql:///mlt-shopping-cart?cloudSqlInstance=my-little-tienda:us-central1:mlt-db&socketFactory=com.google.cloud.sql.mysql.SocketFactory&user=mlt-db&password=mlt-db
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        format_sql: true
+  cloud:
+    service: service_name
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: debug
+        type:
+          descriptor:
+            sql: trace
+service: service_name
