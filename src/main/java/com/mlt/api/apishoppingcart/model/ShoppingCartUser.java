@@ -17,21 +17,23 @@ import lombok.Setter;
 
 import java.io.Serializable;
 
-@Entity
-@Table(name = "shopping_cart_user")
+
 @Builder
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Entity
+@Table(name = "SHOPPING_CART_USER")
 public class ShoppingCartUser implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "ID")
     private Long id;
 
     @NotNull
-    @Column(name = "username", nullable = false)
+    @Column(name = "USERNAME", nullable = false)
     private String username;
 
     @OneToOne(mappedBy = "shoppingCartUser", cascade = CascadeType.ALL)

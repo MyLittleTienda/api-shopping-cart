@@ -1,5 +1,7 @@
 package com.mlt.api.apishoppingcart.model;
 
+import java.io.Serializable;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -21,21 +23,22 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Table(name = "shopping_cart_item")
-public class ShoppingCartItem {
+@Table(name = "SHOPPING_CART_ITEM")
+public class ShoppingCartItem implements Serializable{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "ID")
     private Long id;
 
-    @Column(name = "product_id")
+    @Column(name = "PRODUCT_ID")
     private String productId;
 
-    @Column(name = "quantity")
+    @Column(name = "QUANTITY")
     private Integer quantity;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "shopping_cart_id")
+    @JoinColumn(name = "SHOPPING_CART_ID")
     private ShoppingCart shoppingCart;
 
 }

@@ -16,26 +16,28 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.io.Serializable;
 import java.util.List;
 
-@Entity
-@Table(name = "shopping_cart")
 @Builder
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class ShoppingCart {
+@Entity
+@Table(name = "SHOPPING_CART")
+public class ShoppingCart implements Serializable{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "ID")
     private Long id;
 
     @OneToOne
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "USER_ID")
     private ShoppingCartUser shoppingCartUser;
 
-    @Column(name = "closed")
+    @Column(name = "CLOSED")
     private Boolean closed;
 
     @OneToMany(mappedBy = "shoppingCart", cascade = {CascadeType.PERSIST, CascadeType.REMOVE})

@@ -1,2 +1,0 @@
-ALTER TABLE shopping_cart
-    ADD COLUMN closed BOOLEAN DEFAULT FALSE;

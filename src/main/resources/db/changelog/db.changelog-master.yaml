@@ -1,0 +1,5 @@
+databaseChangeLog:
+  - include:
+      id: "master_mlt_shopping_cart"
+      file: mlt_shopping_cart/master.yaml
+      relativeToChangelogFile: true
